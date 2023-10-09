@@ -1,0 +1,11 @@
+com\phucdevs\productservice\product\ProductRequest$ProductRequestBuilder.class
+com\phucdevs\productservice\product\ProductRequest.class
+com\phucdevs\productservice\product\ProductRepository.class
+com\phucdevs\productservice\product\ProductController.class
+com\phucdevs\productservice\product\ProductService.class
+com\phucdevs\productservice\product\Product$ProductBuilder.class
+com\phucdevs\productservice\product\ProductServiceImpl.class
+com\phucdevs\productservice\product\ProductResponse$ProductResponseBuilder.class
+com\phucdevs\productservice\product\Product.class
+com\phucdevs\productservice\product\ProductResponse.class
+com\phucdevs\productservice\ProductServiceApplication.class

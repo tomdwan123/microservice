@@ -1,0 +1,7 @@
+com\phucdevs\inventoryservice\inventory\Inventory.class
+com\phucdevs\inventoryservice\inventory\Inventory$InventoryBuilder.class
+com\phucdevs\inventoryservice\inventory\InventoryService.class
+com\phucdevs\inventoryservice\InventoryServiceApplication.class
+com\phucdevs\inventoryservice\inventory\InventoryController.class
+com\phucdevs\inventoryservice\inventory\InventoryRepository.class
+com\phucdevs\inventoryservice\inventory\InventoryServiceImpl.class
