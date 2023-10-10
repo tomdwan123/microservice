@@ -1,6 +1,8 @@
 package com.phucdevs.inventoryservice.inventory;
 
+import java.util.List;
+
 public interface InventoryService {
     
-    public boolean isInStock(String skuCode);
+    public List<InventoryResponse> isInStock(List<String> skuCodes);
 }

@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class InventoryServiceImpl implements InventoryService {
@@ -12,7 +14,14 @@ public class InventoryServiceImpl implements InventoryService {
     
     @Override
     @Transactional(readOnly = true)
-    public boolean isInStock(String skuCode) {
-        return repository.findBySkuCode(skuCode).isPresent();
+    public List<InventoryResponse> isInStock(List<String> skuCodes) {
+        return repository.findBySkuCodeIn(skuCodes)
+                .stream()
+                .map(inventory -> 
+                    InventoryResponse.builder()
+                            .skuCode(inventory.getSkuCode())
+                            .isInStock(inventory.getQuantity() > 0)
+                            .build()
+                ).toList();
     }
 }
