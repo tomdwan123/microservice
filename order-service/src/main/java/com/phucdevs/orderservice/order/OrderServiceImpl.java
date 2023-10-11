@@ -14,7 +14,7 @@ import java.util.UUID;
 @Transactional
 public class OrderServiceImpl implements OrderService {
 
-    private final String INVENTORY_SERVICE_URL = "http://localhost:8082/api/v1/inventory";
+    private final String INVENTORY_SERVICE_URL = "http://inventory-service/api/v1/inventory";
     
     private final OrderRepository repository;
     private final WebClient webClient;
