@@ -17,7 +17,7 @@ public class OrderServiceImpl implements OrderService {
     private final String INVENTORY_SERVICE_URL = "http://inventory-service/api/v1/inventory";
     
     private final OrderRepository repository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
     
     @Override
     public void placeOrder(OrderRequest orderRequest) {
@@ -38,7 +38,7 @@ public class OrderServiceImpl implements OrderService {
                 .toList();
 
         // call to inventory-service to place order if product is in stock
-        InventoryResponse[] inventoryResponses = webClient.get()
+        InventoryResponse[] inventoryResponses = webClientBuilder.build().get()
                 .uri(INVENTORY_SERVICE_URL,
                         uriBuilder -> uriBuilder.queryParam("skuCodes", skuCodes).build())
                 .retrieve()
