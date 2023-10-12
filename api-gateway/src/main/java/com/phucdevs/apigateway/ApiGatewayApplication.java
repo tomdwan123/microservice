@@ -1,4 +1,4 @@
-package main.java.com.phucdevs.apigateway;
+package com.phucdevs.apigateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
