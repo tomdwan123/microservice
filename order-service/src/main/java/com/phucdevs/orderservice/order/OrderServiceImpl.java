@@ -1,6 +1,7 @@
 package com.phucdevs.orderservice.order;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -18,6 +19,7 @@ public class OrderServiceImpl implements OrderService {
     
     private final OrderRepository repository;
     private final WebClient.Builder webClientBuilder;
+    private final KafkaTemplate<String, OrderPlacedEvent> kafkaTemplate;
     
     @Override
     public String placeOrder(OrderRequest orderRequest) {
@@ -53,6 +55,7 @@ public class OrderServiceImpl implements OrderService {
         }
         
         repository.save(order);
+        kafkaTemplate.send("notificationTopic", new OrderPlacedEvent(order.getOrderNumber()));
         return "Order Placed Successfully";
     }
 

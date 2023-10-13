@@ -12,13 +12,25 @@ spring:
       ddl-auto: update
   application:
     name: order-service
-  zipkin:
-    enabled: true
-    base-url: http://localhost:9411
   sleuth:
-    enabled: true
+    integration:
+      enabled: true
     sampler:
-      probability: 1.0
+      probability: 1
+  zipkin:
+    base-url: http://localhost:9411
+  kafka:
+    bootstrap-servers: localhost:29092
+    template:
+      default-topic: notificationTopic
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring:
+          json:
+            type:
+              mapping: event:com.phucdevs.orderservice.order.OrderPlacedEvent
       
 eureka:
   client:
