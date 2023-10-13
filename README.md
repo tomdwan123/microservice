@@ -14,5 +14,15 @@
 #### Create image docker keycloak
 docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.4 start-dev
 
+#### Create image docker zipkin
+docker run -d -p 9411:9411 openzipkin/zipkin
+
 #### Refer document
 [spring-cloud-gateway-eureka-service-discovery](https://github.com/BarathArivazhagan/spring-cloud-gateway-eureka-service-discovery/blob/master/docker-compose.yml)
+
+#### Security
+- Keycloak
+
+#### Distributed Tracing
+- Spring Cloud Sleuth -> generate traceId and spanId
+- OpenZipkin -> visualize
