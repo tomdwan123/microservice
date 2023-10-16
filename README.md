@@ -12,10 +12,18 @@
 - Synchronous and Asynchronous communication
 
 #### Create image docker keycloak
-docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.4 start-dev
-
+`docker run -p 8181:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0.4 start-dev
+`
 #### Create image docker zipkin
-docker run -d -p 9411:9411 openzipkin/zipkin
+`docker run -d -p 9411:9411 openzipkin/zipkin
+`
+#### Create docker image java application
+- large size: `docker build -t [name_image] .`
+- small size: `docker build -t [name_image] -f Dockerfile.layered .`
+- without dockerfile: 
+  - add plugin jib-maven-plugin
+  - mvn clean compile jib:build
+  - add server to settings.xml
 
 #### Refer document
 [spring-cloud-gateway-eureka-service-discovery](https://github.com/BarathArivazhagan/spring-cloud-gateway-eureka-service-discovery/blob/master/docker-compose.yml)
@@ -26,3 +34,9 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 #### Distributed Tracing
 - Spring Cloud Sleuth -> generate traceId and spanId
 - OpenZipkin -> visualize
+
+#### Monitoring
+- Spring Boot Application <- Prometheus <- Grafana
+
+#### Spring Boot Microservices Document
+[Spring Boot Microservices](https://www.youtube.com/watch?v=5_EXMJbhLY4&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=9)
