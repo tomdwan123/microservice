@@ -37,6 +37,10 @@
 
 #### Monitoring
 - Spring Boot Application <- Prometheus <- Grafana
+- [Monitoring and Metrics for Spring](https://www.youtube.com/watch?v=_WdIlz33FKE)
+
+#### Migrate version Spring Boot
+- [Rewrite](https://docs.openrewrite.org/)
 
 #### Spring Boot Microservices Document
 [Spring Boot Microservices](https://www.youtube.com/watch?v=5_EXMJbhLY4&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=9)
